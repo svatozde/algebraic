@@ -7,7 +7,7 @@ from here:
 
 [Davide Lettieri: polynomial grammar](https://davidelettieri.it/c%23/antlr/polynomial/2017/12/25/antlr-polynomial.html)
 
-Functionality is delivered as spring boot server less app to run it please can use:
+Functionality is delivered as spring boot server less app to run it please use:
 
 * on windows: `mvnw.cmd spring-boot:run`
 * on linux: `mvnw.cmd spring-boot:run`
