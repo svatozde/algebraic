@@ -1,4 +1,4 @@
-package com.svatozde;
+package com.svatozde.expression;
 
 import com.google.common.collect.ImmutableMap;
 import com.svatozde.expression.expressions.Expression;
