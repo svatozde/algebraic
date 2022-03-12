@@ -10,9 +10,9 @@ here `src/main/antlr4/Polynomial.g4` and originally was taken from here:
 Functionality is delivered as spring boot server less app to run it please use:
 
 * on windows: `mvnw.cmd spring-boot:run`
-* on linux: `mvnw.cmd spring-boot:run`
+* on linux: `./mvnw spring-boot:run`
 
-This requires some java runtime to be installed adn existence of `JAVA_HOME` environment property.
+This requires some java runtime to be installed and existence of `JAVA_HOME` environment property.
 
 Then
 access [http://localhost:8080](http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/expression/newEmployee)
