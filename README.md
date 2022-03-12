@@ -18,6 +18,6 @@ Then
 access [http://localhost:8080](http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/expression/newEmployee)
 where you can test the endpoint
 
-![swgger-ui for polynomial api](assetes/swagger.png "Happy testing!")
+![swgger-ui for polynomial api](assets/swagger.png "Happy testing!")
 
 
