@@ -15,7 +15,7 @@ Functionality is delivered as spring boot server less app to run it please use:
 This requires some java runtime to be installed and existence of `JAVA_HOME` environment property.
 
 Then
-access [http://localhost:8080](http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/expression/newEmployee)
+access [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/expression/newEmployee)
 where you can test the endpoint
 
 ![swgger-ui for polynomial api](assets/swagger.png "Happy testing!")
