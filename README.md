@@ -1,9 +1,9 @@
 ## Algebraic API V 0.1
 
-This app allows parsing of simple algebraic expressions. Parsing is done by antlr4 grammar which vas modified to allov
-usage of `ABS(...) ` unary operator, also ensures commutativity and correct associativity of expression (which is
-difference from original). Modified grammar can be found here `src/main/antlr4/Polynomial.g4` and originally was taken
-from here:
+This app allows parsing of simple algebraic expressions. Parsing is done by antlr4 grammar which vas modified to allow
+usage of `ABS(...) ` unary operator, also ensures commutativity and correct associativity of expression and correct way
+to declare negative constants and variables (which is difference from original). Modified grammar can be found
+here `src/main/antlr4/Polynomial.g4` and originally was taken from here:
 
 [Davide Lettieri: polynomial grammar](https://davidelettieri.it/c%23/antlr/polynomial/2017/12/25/antlr-polynomial.html)
 
