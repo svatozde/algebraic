@@ -64,6 +64,18 @@ public class PolynomialBaseListener implements PolynomialListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLen(PolynomialParser.LenContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLen(PolynomialParser.LenContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterConst(PolynomialParser.ConstContext ctx) { }
 	/**
 	 * {@inheritDoc}

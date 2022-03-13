@@ -59,6 +59,17 @@ public class AlgebraVisitor extends PolynomialBaseVisitor<Expression> {
             .build();
     }
 
+
+    @Override
+    public Expression visitLen(PolynomialParser.LenContext ctx) {
+        String str = ctx.STR() != null ? ctx.STR().getText() : "";
+        str = str.replace("'", ""); //TODO do this in grammar
+        Expression ex = LenExpression.builder()
+            .string(str)
+            .build();
+        return ctx.MINUS() == null ? ex : negative(ex);
+    }
+
     @Override
     public Expression visitProd(PolynomialParser.ProdContext ctx) {
         return MultiplicationExpression.builder()

@@ -56,6 +56,18 @@ public interface PolynomialListener extends ParseTreeListener {
 	 */
 	void exitProd(PolynomialParser.ProdContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code len}
+	 * labeled alternative in {@link PolynomialParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterLen(PolynomialParser.LenContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code len}
+	 * labeled alternative in {@link PolynomialParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitLen(PolynomialParser.LenContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code const}
 	 * labeled alternative in {@link PolynomialParser#expr}.
 	 * @param ctx the parse tree

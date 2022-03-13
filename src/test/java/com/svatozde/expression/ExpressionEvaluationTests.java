@@ -143,6 +143,26 @@ class ExpressionEvaluationTests {
         assertEquals(6, eval("36^ABS(1/2)"));
     }
 
+    @Test
+    void testStringLen() {
+        assertEquals(6, eval("2+LEN('abcd')"));
+    }
+
+    @Test
+    void testStringLenNegative() {
+        assertEquals(-1, eval("-LEN('a')"));
+    }
+
+    @Test
+    void testStringLenPow() {
+        assertEquals(0.5, eval("2^-LEN('a')"));
+    }
+
+    @Test
+    void testStringLenEmpty() {
+        assertEquals(-0.0, eval("4*-LEN('')"));
+    }
+
 
     private double eval(final String expression) {
         return Parser.parse(expression).evaluate();

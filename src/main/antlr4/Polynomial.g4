@@ -6,6 +6,7 @@ expr    : (MINUS)? OP expr CP                                #parenExp
 	    | left=expr DIV right=expr                  #div
         | left=expr PROD right=expr                 #prod
 	    | left=expr (PLUS|MINUS) right=expr         #plusminus
+	    | (MINUS)? LEN STR CP                       #len
 	    | (MINUS)? VAR                              #var
 	    | (MINUS)? NUM                              #const;
 
@@ -19,5 +20,7 @@ PROD    : '*';
 DIV     : '/';
 POWER   : '^';
 NUM     : [0-9.]+;
+QOT     : '\'';
 VAR     : [a-z];
+STR     : '\'' ~[']* '\'';
 WS      : ' ' -> skip;

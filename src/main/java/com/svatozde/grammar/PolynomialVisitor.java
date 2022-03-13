@@ -39,6 +39,13 @@ public interface PolynomialVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProd(PolynomialParser.ProdContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code len}
+	 * labeled alternative in {@link PolynomialParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLen(PolynomialParser.LenContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code const}
 	 * labeled alternative in {@link PolynomialParser#expr}.
 	 * @param ctx the parse tree
