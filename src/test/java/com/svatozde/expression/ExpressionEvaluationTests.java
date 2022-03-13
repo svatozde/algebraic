@@ -163,6 +163,21 @@ class ExpressionEvaluationTests {
         assertEquals(-0.0, eval("4*-LEN('')"));
     }
 
+    @Test
+    void testCommut() {
+        assertEquals(4, eval("2*2/2*2"));
+    }
+
+    @Test
+    void testCommut2() {
+        assertEquals(1, eval("2*(2/2)*2"));
+    }
+
+    @Test
+    void testCommutBracket() {
+        assertEquals(16, eval("2*(2+2)*2"));
+    }
+
 
     private double eval(final String expression) {
         return Parser.parse(expression).evaluate();
