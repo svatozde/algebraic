@@ -170,7 +170,7 @@ class ExpressionEvaluationTests {
 
     @Test
     void testCommut2() {
-        assertEquals(1, eval("(2*(2/2)*2)"));
+        assertEquals(4, eval("(2*(2/2)*2)"));
     }
 
     @Test

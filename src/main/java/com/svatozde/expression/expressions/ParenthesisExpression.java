@@ -1,27 +1,14 @@
 package com.svatozde.expression.expressions;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
-import java.util.Map;
-
-@Builder
-@AllArgsConstructor
+@SuperBuilder
 @ToString
-public class ParenthesisExpression extends Expression {
-    private Expression content;
-
+public class ParenthesisExpression extends UnaryExpression {
     @Override
     public double evaluate() {
         return content.evaluate();
     }
-
-    @Override
-    public Expression bind(Map<String, Double> values) {
-        content.bind(values);
-        return this;
-    }
-
 
 }
