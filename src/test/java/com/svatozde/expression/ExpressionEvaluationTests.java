@@ -160,7 +160,7 @@ class ExpressionEvaluationTests {
 
     @Test
     void testStringLenEmpty() {
-        assertEquals(-0.0, eval("4*-LEN('')"));
+        assertEquals(-1.0, eval("-5*-LEN('')-1"));
     }
 
     @Test
@@ -170,7 +170,7 @@ class ExpressionEvaluationTests {
 
     @Test
     void testCommut2() {
-        assertEquals(1, eval("2*(2/2)*2"));
+        assertEquals(1, eval("(2*(2/2)*2)"));
     }
 
     @Test

@@ -32,6 +32,18 @@ public interface PolynomialListener extends ParseTreeListener {
 	 */
 	void exitPlusminus(PolynomialParser.PlusminusContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code negative}
+	 * labeled alternative in {@link PolynomialParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterNegative(PolynomialParser.NegativeContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code negative}
+	 * labeled alternative in {@link PolynomialParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitNegative(PolynomialParser.NegativeContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code abs}
 	 * labeled alternative in {@link PolynomialParser#expr}.
 	 * @param ctx the parse tree

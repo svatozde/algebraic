@@ -154,6 +154,26 @@ public class PolynomialParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class NegativeContext extends ExprContext {
+		public TerminalNode MINUS() { return getToken(PolynomialParser.MINUS, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public NegativeContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof PolynomialListener ) ((PolynomialListener)listener).enterNegative(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof PolynomialListener ) ((PolynomialListener)listener).exitNegative(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PolynomialVisitor ) return ((PolynomialVisitor<? extends T>)visitor).visitNegative(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class AbsContext extends ExprContext {
 		public TerminalNode ABS() { return getToken(PolynomialParser.ABS, 0); }
 		public ExprContext expr() {
@@ -204,7 +224,6 @@ public class PolynomialParser extends Parser {
 		public TerminalNode LEN() { return getToken(PolynomialParser.LEN, 0); }
 		public TerminalNode STR() { return getToken(PolynomialParser.STR, 0); }
 		public TerminalNode CP() { return getToken(PolynomialParser.CP, 0); }
-		public TerminalNode MINUS() { return getToken(PolynomialParser.MINUS, 0); }
 		public LenContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -222,7 +241,6 @@ public class PolynomialParser extends Parser {
 	}
 	public static class ConstContext extends ExprContext {
 		public TerminalNode NUM() { return getToken(PolynomialParser.NUM, 0); }
-		public TerminalNode MINUS() { return getToken(PolynomialParser.MINUS, 0); }
 		public ConstContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -240,7 +258,6 @@ public class PolynomialParser extends Parser {
 	}
 	public static class VarContext extends ExprContext {
 		public TerminalNode VAR() { return getToken(PolynomialParser.VAR, 0); }
-		public TerminalNode MINUS() { return getToken(PolynomialParser.MINUS, 0); }
 		public VarContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -262,7 +279,6 @@ public class PolynomialParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public TerminalNode CP() { return getToken(PolynomialParser.CP, 0); }
-		public TerminalNode MINUS() { return getToken(PolynomialParser.MINUS, 0); }
 		public ParenExpContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -320,130 +336,103 @@ public class PolynomialParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(28);
+			setState(18);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case MINUS:
+				{
+				_localctx = new NegativeContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
+				setState(3);
+				match(MINUS);
+				setState(4);
+				expr(10);
+				}
+				break;
+			case OP:
 				{
 				_localctx = new ParenExpContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-
-				setState(4);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==MINUS) {
-					{
-					setState(3);
-					match(MINUS);
-					}
-				}
-
-				setState(6);
+				setState(5);
 				match(OP);
-				setState(7);
+				setState(6);
 				expr(0);
-				setState(8);
+				setState(7);
 				match(CP);
 				}
 				break;
-			case 2:
+			case ABS:
 				{
 				_localctx = new AbsContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(10);
+				setState(9);
 				match(ABS);
-				setState(11);
+				setState(10);
 				expr(0);
-				setState(12);
+				setState(11);
 				match(CP);
 				}
 				break;
-			case 3:
+			case LEN:
 				{
 				_localctx = new LenContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(15);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==MINUS) {
-					{
-					setState(14);
-					match(MINUS);
-					}
-				}
-
-				setState(17);
+				setState(13);
 				match(LEN);
-				setState(18);
+				setState(14);
 				match(STR);
-				setState(19);
+				setState(15);
 				match(CP);
 				}
 				break;
-			case 4:
+			case VAR:
 				{
 				_localctx = new VarContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(21);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==MINUS) {
-					{
-					setState(20);
-					match(MINUS);
-					}
-				}
-
-				setState(23);
+				setState(16);
 				match(VAR);
 				}
 				break;
-			case 5:
+			case NUM:
 				{
 				_localctx = new ConstContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(25);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==MINUS) {
-					{
-					setState(24);
-					match(MINUS);
-					}
-				}
-
-				setState(27);
+				setState(17);
 				match(NUM);
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(44);
+			setState(34);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(42);
+					setState(32);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 					case 1:
 						{
 						_localctx = new PowerContext(new ExprContext(_parentctx, _parentState));
 						((PowerContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(30);
+						setState(20);
 						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-						setState(31);
+						setState(21);
 						match(POWER);
-						setState(32);
+						setState(22);
 						((PowerContext)_localctx).right = expr(8);
 						}
 						break;
@@ -452,11 +441,11 @@ public class PolynomialParser extends Parser {
 						_localctx = new DivContext(new ExprContext(_parentctx, _parentState));
 						((DivContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(33);
+						setState(23);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(34);
+						setState(24);
 						match(DIV);
-						setState(35);
+						setState(25);
 						((DivContext)_localctx).right = expr(7);
 						}
 						break;
@@ -465,11 +454,11 @@ public class PolynomialParser extends Parser {
 						_localctx = new ProdContext(new ExprContext(_parentctx, _parentState));
 						((ProdContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(36);
+						setState(26);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(37);
+						setState(27);
 						match(PROD);
-						setState(38);
+						setState(28);
 						((ProdContext)_localctx).right = expr(6);
 						}
 						break;
@@ -478,9 +467,9 @@ public class PolynomialParser extends Parser {
 						_localctx = new PlusminusContext(new ExprContext(_parentctx, _parentState));
 						((PlusminusContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(39);
+						setState(29);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(40);
+						setState(30);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
 						_errHandler.recoverInline(this);
@@ -490,16 +479,16 @@ public class PolynomialParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(41);
+						setState(31);
 						((PlusminusContext)_localctx).right = expr(5);
 						}
 						break;
 					}
 					} 
 				}
-				setState(46);
+				setState(36);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			}
 			}
 		}
@@ -536,21 +525,18 @@ public class PolynomialParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20\62\4\2\t\2\3\2"+
-		"\3\2\5\2\7\n\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\22\n\2\3\2\3\2"+
-		"\3\2\3\2\5\2\30\n\2\3\2\3\2\5\2\34\n\2\3\2\5\2\37\n\2\3\2\3\2\3\2\3\2"+
-		"\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\7\2-\n\2\f\2\16\2\60\13\2\3\2\2\3\2\3"+
-		"\2\2\3\3\2\7\b\2<\2\36\3\2\2\2\4\6\b\2\1\2\5\7\7\b\2\2\6\5\3\2\2\2\6\7"+
-		"\3\2\2\2\7\b\3\2\2\2\b\t\7\4\2\2\t\n\5\2\2\2\n\13\7\3\2\2\13\37\3\2\2"+
-		"\2\f\r\7\5\2\2\r\16\5\2\2\2\16\17\7\3\2\2\17\37\3\2\2\2\20\22\7\b\2\2"+
-		"\21\20\3\2\2\2\21\22\3\2\2\2\22\23\3\2\2\2\23\24\7\6\2\2\24\25\7\17\2"+
-		"\2\25\37\7\3\2\2\26\30\7\b\2\2\27\26\3\2\2\2\27\30\3\2\2\2\30\31\3\2\2"+
-		"\2\31\37\7\16\2\2\32\34\7\b\2\2\33\32\3\2\2\2\33\34\3\2\2\2\34\35\3\2"+
-		"\2\2\35\37\7\f\2\2\36\4\3\2\2\2\36\f\3\2\2\2\36\21\3\2\2\2\36\27\3\2\2"+
-		"\2\36\33\3\2\2\2\37.\3\2\2\2 !\f\t\2\2!\"\7\13\2\2\"-\5\2\2\n#$\f\b\2"+
-		"\2$%\7\n\2\2%-\5\2\2\t&\'\f\7\2\2\'(\7\t\2\2(-\5\2\2\b)*\f\6\2\2*+\t\2"+
-		"\2\2+-\5\2\2\7, \3\2\2\2,#\3\2\2\2,&\3\2\2\2,)\3\2\2\2-\60\3\2\2\2.,\3"+
-		"\2\2\2./\3\2\2\2/\3\3\2\2\2\60.\3\2\2\2\t\6\21\27\33\36,.";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20(\4\2\t\2\3\2\3"+
+		"\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\25\n\2"+
+		"\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\7\2#\n\2\f\2\16\2&\13"+
+		"\2\3\2\2\3\2\3\2\2\3\3\2\7\b\2/\2\24\3\2\2\2\4\5\b\2\1\2\5\6\7\b\2\2\6"+
+		"\25\5\2\2\f\7\b\7\4\2\2\b\t\5\2\2\2\t\n\7\3\2\2\n\25\3\2\2\2\13\f\7\5"+
+		"\2\2\f\r\5\2\2\2\r\16\7\3\2\2\16\25\3\2\2\2\17\20\7\6\2\2\20\21\7\17\2"+
+		"\2\21\25\7\3\2\2\22\25\7\16\2\2\23\25\7\f\2\2\24\4\3\2\2\2\24\7\3\2\2"+
+		"\2\24\13\3\2\2\2\24\17\3\2\2\2\24\22\3\2\2\2\24\23\3\2\2\2\25$\3\2\2\2"+
+		"\26\27\f\t\2\2\27\30\7\13\2\2\30#\5\2\2\n\31\32\f\b\2\2\32\33\7\n\2\2"+
+		"\33#\5\2\2\t\34\35\f\7\2\2\35\36\7\t\2\2\36#\5\2\2\b\37 \f\6\2\2 !\t\2"+
+		"\2\2!#\5\2\2\7\"\26\3\2\2\2\"\31\3\2\2\2\"\34\3\2\2\2\"\37\3\2\2\2#&\3"+
+		"\2\2\2$\"\3\2\2\2$%\3\2\2\2%\3\3\2\2\2&$\3\2\2\2\5\24\"$";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

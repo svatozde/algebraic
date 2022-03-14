@@ -40,6 +40,18 @@ public class PolynomialBaseListener implements PolynomialListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNegative(PolynomialParser.NegativeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNegative(PolynomialParser.NegativeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAbs(PolynomialParser.AbsContext ctx) { }
 	/**
 	 * {@inheritDoc}

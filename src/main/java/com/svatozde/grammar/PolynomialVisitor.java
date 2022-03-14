@@ -25,6 +25,13 @@ public interface PolynomialVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPlusminus(PolynomialParser.PlusminusContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code negative}
+	 * labeled alternative in {@link PolynomialParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNegative(PolynomialParser.NegativeContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code abs}
 	 * labeled alternative in {@link PolynomialParser#expr}.
 	 * @param ctx the parse tree

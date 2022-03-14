@@ -7,6 +7,12 @@ here `src/main/antlr4/Polynomial.g4` and originally was taken from here:
 
 [Davide Lettieri: polynomial grammar](https://davidelettieri.it/c%23/antlr/polynomial/2017/12/25/antlr-polynomial.html)
 
+### Available operators
+
+Standard set of mathematical opertors:`+`, `-`, `/`, `*`, `()`, `^`
+Special unary operators: `ABS(...)` absolute vlaues, `LEN('abcd')` and len of string in parameter Its possible to use
+varibles but they have to be single letter lower case: `a+b+c`
+
 Functionality is delivered as spring boot server less app to run it please use:
 
 * on windows: `mvnw.cmd spring-boot:run`
